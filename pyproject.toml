@@ -9,6 +9,7 @@ python = "^3.8"
 pytorch-lightning = "^1.5.10"
 torchmetrics = "^0.7.2"
 matplotlib = "^3.5.1"
+torchvision = "^0.11.3"
 
 [tool.poetry.dev-dependencies]
 
