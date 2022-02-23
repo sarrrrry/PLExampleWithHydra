@@ -1,0 +1,7 @@
+# update
+defaults:
+  - hydra: common
+
+GROUP_NAME: exp_2
+RUN_NAME: debug
+

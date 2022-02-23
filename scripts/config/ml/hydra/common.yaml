@@ -1,0 +1,48 @@
+# @package _global_
+
+# default values
+LOGS_ROOT: logs
+PRJ_NAME: pl_example
+GROUP_NAME: exp_1
+RUN_NAME: debug
+
+hydra:
+  run:
+    dir: ${LOGS_ROOT}/hydra/${PRJ_NAME}/${GROUP_NAME}/${RUN_NAME}/${now:%y%m%d_%H%M%S}
+  job_logging:
+    formatters:
+      file:
+        format: "[%(levelname)s] %(asctime)s - %(name)s \n %(message)s"
+      console:
+        format: "%(message)s"
+    handlers:
+      console:
+        class: logging.StreamHandler
+        level: INFO
+        formatter: console
+        stream: ext://sys.stdout
+      file:
+        class: logging.FileHandler
+        level: NOTSET
+        formatter: file
+    loggers:
+      root:
+        level: NOTSET
+        handlers:
+          - console
+          - file
+      PIL:
+        level: INFO
+        handlers:
+          - console
+          - file
+      matplotlib:
+        level: INFO
+        handlers:
+          - console
+          - file
+      git:
+        level: INFO
+        handlers:
+          - console
+          - file
